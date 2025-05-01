@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Conference App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="main-area">
+            <div class="video-grid" id="video-grid">
+                <!-- Videos will be added here dynamically -->
+            </div>
+            
+            <div class="sidebar">
+                <div class="participants-section">
+                    <h3><i class="fas fa-users"></i> Participants</h3>
+                    <div class="participants-list" id="participants-list"></div>
+                </div>
+                
+                <div class="chat-section">
+                    <h3><i class="fas fa-comment"></i> Chat</h3>
+                    <div class="chat-messages" id="chat-messages"></div>
+                    <input type="text" id="chat-input" placeholder="Type a message...">
+                </div>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button id="mute-btn"><i class="fas fa-microphone"></i> Mute</button>
+            <button id="video-btn"><i class="fas fa-video"></i> Stop Video</button>
+            <button id="share-btn"><i class="fas fa-desktop"></i> Share Screen</button>
+            <button id="whiteboard-btn"><i class="fas fa-pen"></i> Whiteboard</button>
+            <button id="leave-btn" class="danger"><i class="fas fa-phone-slash"></i> Leave</button>
+        </div>
+        
+        <div class="whiteboard-container hidden" id="whiteboard">
+            <canvas id="drawing-board"></canvas>
+            <div class="whiteboard-controls">
+                <input type="color" id="color-picker" value="#000000">
+                <input type="range" id="brush-size" min="1" max="20" value="5">
+                <button id="clear-board"><i class="fas fa-trash"></i> Clear</button>
+                <button id="close-whiteboard"><i class="fas fa-times"></i> Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/peerjs@1.4.7/dist/peerjs.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
